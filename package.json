@@ -1,0 +1,16 @@
+{
+  "name": "theoplayer-web-native-picture-in-picture",
+  "version": "0.0.1",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://thijs-theo@bitbucket.org/r8szq0vy/theoplayer-media-session-api.git"
+  },
+  "author": "thijsl",
+  "license": "ISC",
+  "homepage": "https://bitbucket.org/r8szq0vy/theoplayer-media-session-api#readme"
+}
