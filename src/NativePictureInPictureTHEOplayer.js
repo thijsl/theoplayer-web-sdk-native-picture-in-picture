@@ -96,7 +96,103 @@ export class NativePictureInPictureTHEOplayer {
         }
 
     }
+
+    requestPictureInPicture() {
+        if (!this.supportsPiP) {
+            return false;
+        }
+        const video = this.player.element.querySelectorAll('video[src]')[0];
+        if (video) {
+            try {
+                if (video !== document.pictureInPictureElement) {
+                    return video.requestPictureInPicture();
+                } else {
+                    return document.pictureInPictureElement;
+                }
+            }
+            catch(error) {
+                return error;
+            }
+        }
+    }
+
+    exitPictureInPicture() {
+        if (!this.supportsPiP) {
+            return false;
+        }
+        try {
+            if (document.pictureInPictureElement) {
+                return document.exitPictureInPicture()
+            } else {
+                return false;
+            }
+        }
+        catch(error) {
+            return error;
+        }
+    }
+
+    get disablePictureInPicture() {
+        const video = this.player.element.querySelectorAll('video[src]')[0];
+        if (video) {
+            return video.disablePictureInPicture;
+        }
+    }
+
+    set disablePictureInPicture(value) {
+        const video = this.player.element.querySelectorAll('video[src]')[0];
+        if (video) {
+            video.disablePictureInPicture = value;
+        }
+    }
+
+    get autoPictureInPicture() {
+        const video = this.player.element.querySelectorAll('video[src]')[0];
+        if (video) {
+            return video.autoPictureInPicture;
+        }
+    }
+
+    set autoPictureInPicture(value) {
+        const video = this.player.element.querySelectorAll('video[src]')[0];
+        if (video) {
+            video.autoPictureInPicture = value;
+        }
+    }
+
+    get pictureInPictureEnabled() {
+        if (!this.supportsPiP) {
+            return false;
+        }
+        return document.pictureInPictureEnabled;
+    }
+
+    get pictureInPictureElement() {
+        if (!this.supportsPiP) {
+            return false;
+        }
+        return document.pictureInPictureElement;
+    }
+
+    addEventListener(event, callback) {
+        if (!this.supportsPiP) {
+            return false;
+        }
+        const video = this.player.element.querySelectorAll('video[src]')[0];
+        if (video) {
+            video.addEventListener(event, callback);
+        }
+    }
+
+    removeEventListener(event, callback) {
+        if (!this.supportsPiP) {
+            return false;
+        }
+        const video = this.player.element.querySelectorAll('video[src]')[0];
+        if (video) {
+            video.removeEventListener(event, callback);
+        }
+    }
+
+
 }
-
-
-// module.exports.NativePictureInPictureTHEOplayer = NativePictureInPictureTHEOplayer;

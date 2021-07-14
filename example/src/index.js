@@ -1,5 +1,5 @@
 import * as THEOplayer from 'theoplayer';
-import {NativePictureInPictureTHEOplayer} from "../../index";
+import {NativePictureInPictureTHEOplayer} from "../../src/NativePictureInPictureTHEOplayer";
 
 const element = document.getElementById('my-player');
 const configuration = {
@@ -9,5 +9,7 @@ const configuration = {
 
 const player = new THEOplayer.Player(element, configuration);
 const pipPlayer = new NativePictureInPictureTHEOplayer(THEOplayer, player, {defaultUI: true});
+window.pipPlayer = pipPlayer;
+window.player = player;
 
 player.src = '//cdn.theoplayer.com/video/elephants-dream/playlist.m3u8';

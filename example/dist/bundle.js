@@ -48,13 +48,11 @@
             };
 
             const updatePiPButton = function() {
-                console.log("update button");
                 const isPiP = !!document.pictureInPictureElement;
                 const pipButton = player.element.parentNode.querySelector('.theo-pip-native');
                 if (pipButton) {
                     pipButton.classList.remove('active-pip');
                     if (isPiP) {
-                        console.log("is active pip");
                         pipButton.classList.add('active-pip');
                     }
                 }
@@ -123,19 +121,117 @@
             }
 
         }
+
+        requestPictureInPicture() {
+            if (!this.supportsPiP) {
+                return false;
+            }
+            const video = this.player.element.querySelectorAll('video[src]')[0];
+            if (video) {
+                try {
+                    if (video !== document.pictureInPictureElement) {
+                        return video.requestPictureInPicture();
+                    } else {
+                        return document.pictureInPictureElement;
+                    }
+                }
+                catch(error) {
+                    return error;
+                }
+            }
+        }
+
+        exitPictureInPicture() {
+            if (!this.supportsPiP) {
+                return false;
+            }
+            try {
+                if (document.pictureInPictureElement) {
+                    return document.exitPictureInPicture()
+                } else {
+                    return false;
+                }
+            }
+            catch(error) {
+                return error;
+            }
+        }
+
+        get disablePictureInPicture() {
+            const video = this.player.element.querySelectorAll('video[src]')[0];
+            if (video) {
+                return video.disablePictureInPicture;
+            }
+        }
+
+        set disablePictureInPicture(value) {
+            const video = this.player.element.querySelectorAll('video[src]')[0];
+            if (video) {
+                video.disablePictureInPicture = value;
+            }
+        }
+
+        get autoPictureInPicture() {
+            const video = this.player.element.querySelectorAll('video[src]')[0];
+            if (video) {
+                return video.autoPictureInPicture;
+            }
+        }
+
+        set autoPictureInPicture(value) {
+            const video = this.player.element.querySelectorAll('video[src]')[0];
+            if (video) {
+                video.autoPictureInPicture = value;
+            }
+        }
+
+        get pictureInPictureEnabled() {
+            if (!this.supportsPiP) {
+                return false;
+            }
+            return document.pictureInPictureEnabled;
+        }
+
+        get pictureInPictureElement() {
+            if (!this.supportsPiP) {
+                return false;
+            }
+            return document.pictureInPictureElement;
+        }
+
+        addEventListener(event, callback) {
+            if (!this.supportsPiP) {
+                return false;
+            }
+            const video = this.player.element.querySelectorAll('video[src]')[0];
+            if (video) {
+                video.addEventListener(event, callback);
+            }
+        }
+
+        removeEventListener(event, callback) {
+            if (!this.supportsPiP) {
+                return false;
+            }
+            const video = this.player.element.querySelectorAll('video[src]')[0];
+            if (video) {
+                video.removeEventListener(event, callback);
+            }
+        }
+
+
     }
-
-
-    // module.exports.NativePictureInPictureTHEOplayer = NativePictureInPictureTHEOplayer;
 
     const element = document.getElementById('my-player');
     const configuration = {
-        license: 'sZP7IYe6T6PK3LXg3K0_0OziIDakFSatCL5-CSht06kK3KaiTuaz3QCoCo06FOPlUY3zWokgbgjNIOf9fKaZTux10LUlFDXgTSb-3QIg06k1IKhrFSBrISCo0QPeCo0i36fVfK4_bQgZCYxNWoryIQXzImf90SCc3lCo3lai0u5i0Oi6Io4pIYP1UQgqWgjeCYxgflEc3lBc3Sez3uRt0S5cFOPeWok1dDrLYtA1Ioh6TgV6UQ1gWtAVCYggb6rlWoz6FOPVWo31WQ1qbta6FOfJfgzVfKxqWDXNWG3ybojkbK3gflNWfGxEIDjiWQXrIYfpCoj-f6i6WQjlCDcEWt3zf6i6v6PUFOPLIQ-LflNWfK1zWDikfgzVfG3gWKxydDkibK4LbogqW6f9UwPkIYz',
+        license: 'sZP7IYe6T6P1Cl46TDX136z_0lAlFSxeTu0-Cl4K3ZzkTS3lCoBoISUlCS06FOPlUY3zWokgbgjNIOf9fKaZTux10LUlFDXgTSb-3QIg06k1IKhrFSBrISCo0QPeCo0i36fVfK4_bQgZCYxNWoryIQXzImf90SCL0SB_0SCi0u5i0Oi6Io4pIYP1UQgqWgjeCYxgflEc3l5_3lhz0lRo3SBLFOPeWok1dDrLYtA1Ioh6TgV6CojeIY31WKx6WtRpdD26FOPlbofpCYAif6i6dG3KdDxeWQhpWK4zf6i6dG3EIDcVFKrgUOfVfKcqCoXVdQjLUOfVfGPgbQipCo26FOPZIYAVFKgzf6i6bK4iWQgzFK3qWmfVfGPgbQcNUw4LIYPlWorzIDrzFK3qWmfVfGxEIDjiWQXrIYfpCoj-fgzVfKxqWDXNWG3ybojkbK3gflNWf6E6FOPVWo31WQ1qbta6FOPzdQ4qbQc1sD4ZFK3qWmPUFOPLIQ-LflNWfK1zWDikfgzVfG3gWKxydDkibK4LbogqW6f9UwPkIYz',
         libraryLocation: './vendor/theoplayer/'
     };
 
     const player = new THEOplayer__namespace.Player(element, configuration);
-    new NativePictureInPictureTHEOplayer(THEOplayer__namespace, player, {defaultUI: true});
+    const pipPlayer = new NativePictureInPictureTHEOplayer(THEOplayer__namespace, player, {defaultUI: false});
+    window.pipPlayer = pipPlayer;
+    window.player = player;
 
     player.src = '//cdn.theoplayer.com/video/elephants-dream/playlist.m3u8';
 
