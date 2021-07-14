@@ -1,5 +1,5 @@
 import * as THEOplayer from 'theoplayer';
-import {NativePictureInPictureTHEOplayer} from "../../src/NativePictureInPictureTHEOplayer";
+import {NativePictureInPictureTHEOplayer} from "theoplayer-web-native-picture-in-picture";
 
 const element = document.getElementById('my-player');
 const configuration = {

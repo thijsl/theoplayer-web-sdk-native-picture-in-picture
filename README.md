@@ -1,5 +1,7 @@
 # theoplayer-web-sdk-native-picture-in-picture
 
+**THIS NPM PACKAGE IS NOT YET FUNCTIONAL. Manually import the `NativePictureInPictureTHEOplayer` class in your project to take advantage of this project for now.**
+
 The `NativePictureInPictureTHEOplayer` class facilitates the implementation of the [Picture in Picture API](https://developer.mozilla.org/en-US/docs/Web/API/Picture-in-Picture_API).
 This is a community project and is not maintained by THEO Technologies.
 
@@ -32,17 +34,6 @@ You can call the following properties for your instance:
 * `autoPictureInPicture`
 * `pictureInPictureEnabled`
 * `pictureInPictureElement`
-
-## Run example
-
-There is a functional example in the [`example/`](example/) folder. To run it:
-
-1. Navigate to the `example/` folder. (e.g. `cd example/`).
-2. Run `npm i` to install the NPM dependencies.
-3. Configure your `license` string in `example/src/index.js`. Refer to THEOplayer's [getting started guide](https://docs.theoplayer.com/getting-started/01-sdks/01-web/00-getting-started-extended.md#configure-license) if you are unsure what to do.
-4. Run `npm run build` to build the project.
-5. Run `npm run serve` to start a local webserver.
-6. Go to [http://localhost:8080/](http://localhost:8080/) to view the example.
 
 ## Limitations
 
