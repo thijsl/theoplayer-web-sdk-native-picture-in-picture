@@ -2,9 +2,14 @@
   "name": "theoplayer-web-native-picture-in-picture",
   "version": "0.0.3",
   "description": "Get native Picture-in-Picture running in the THEOplayer Web SDK.",
-  "main": "src/index.js",
+  "main": "dist/theoplayer-web-native-picture-in-picture.js",
+  "module": "dist/theoplayer-web-native-picture-in-picture.mjs",
+  "exports": {
+    "import": "dist/theoplayer-web-native-picture-in-picture.mjs",
+    "default": "dist/theoplayer-web-native-picture-in-picture.js"
+  },
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "build": "rollup -c"
   },
   "repository": {
     "type": "git",
@@ -12,5 +17,11 @@
   },
   "author": "thijsl",
   "license": "ISC",
-  "homepage": "https://github.com/thijsl/theoplayer-web-sdk-native-picture-in-picture/"
+  "homepage": "https://github.com/thijsl/theoplayer-web-sdk-native-picture-in-picture/",
+  "files": [
+    "dist/"
+  ],
+  "devDependencies": {
+    "rollup": "^2.53.2"
+  }
 }

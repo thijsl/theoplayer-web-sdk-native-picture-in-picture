@@ -1,6 +1,5 @@
 import copy from 'rollup-plugin-copy';
 import nodeResolve from "rollup-plugin-node-resolve";
-import commonjs from "rollup-plugin-commonjs";
 
 export default {
     input: './src/index.js',
@@ -11,14 +10,13 @@ export default {
             theoplayer: 'THEOplayer'
         }
     },
-    external: [ 'theoplayer' ],
+    external: ['theoplayer'],
     plugins: [
         nodeResolve(),
-        commonjs(),
         copy({
             targets: [
-                { src: './node_modules/theoplayer/*.(js|css|html)' , dest: './dist/vendor/theoplayer' },
-                { src: './src/index.html' , dest: './dist' }
+                {src: './node_modules/theoplayer/*.(js|css|html)', dest: './dist/vendor/theoplayer'},
+                {src: './src/index.html', dest: './dist'}
             ]
         })
     ]
