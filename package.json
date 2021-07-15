@@ -1,6 +1,6 @@
 {
   "name": "theoplayer-web-native-picture-in-picture",
-  "version": "0.0.3",
+  "version": "0.0.4",
   "description": "Get native Picture-in-Picture running in the THEOplayer Web SDK.",
   "main": "dist/theoplayer-web-native-picture-in-picture.js",
   "module": "dist/theoplayer-web-native-picture-in-picture.mjs",

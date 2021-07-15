@@ -1,7 +1,5 @@
 # theoplayer-web-sdk-native-picture-in-picture
 
-**THIS NPM PACKAGE IS NOT YET FUNCTIONAL. Manually import the `NativePictureInPictureTHEOplayer` class in your project to take advantage of this project for now.**
-
 The `NativePictureInPictureTHEOplayer` class facilitates the implementation of the [Picture in Picture API](https://developer.mozilla.org/en-US/docs/Web/API/Picture-in-Picture_API).
 This is a community project and is not maintained by THEO Technologies.
 
